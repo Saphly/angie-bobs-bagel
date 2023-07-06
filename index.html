@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bob's Bagels Landing Page</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="background-picture">
+      <header>
+        <div class="logo">
+          <img src="./images/bobs-bagel-logo.png" style="width: 50%" />
+        </div>
+        <div class="navBar">
+          <p>Home</p>
+          <p>Bagel Menu</p>
+          <p>Order Online</p>
+          <p>Login/Sign Up</p>
+        </div>
+      </header>
+
+      <div class="mainBodyText">
+        <h1>Bob's Bagels</h1>
+        <h4>Freshly baked, filled and served to you daily</h4>
+      </div>
+    </div>
+
+    <div class="history">
+      <div class="description">
+        <h3 style="margin: 0px">Baking Bagels since 1998</h3>
+        <p>
+          Welcome to our esteemed bagel store, where we have been crafting and
+          perfecting the art of baking bagels since 1998. With over two decades
+          of experience, our passion for creating the most delectable and
+          authentic bagels shines through in every bite.
+        </p>
+      </div>
+      <!-- <div class="slideShow" style="border: 3px color red"></div> -->
+
+      <div>
+        <!-- SOURCE: W3 SCHOOL -->
+        <!-- Slideshow container -->
+        <div class="slideshow-container">
+          <!-- Full-width images with number and caption text -->
+          <div class="mySlides fade">
+            <div class="numbertext">1 / 3</div>
+            <img src="./images/poppy-seed-bagels.png" style="width: 100%" />
+            <div class="text">Poppy seed bagel</div>
+          </div>
+
+          <div class="mySlides fade">
+            <div class="numbertext">2 / 3</div>
+            <img src="./images/cheddar-bagels.png" style="width: 100%" />
+            <div class="text">Cheddar bagel</div>
+          </div>
+
+          <div class="mySlides fade">
+            <div class="numbertext">3 / 3</div>
+            <img src="./images/blueberry-bagels.png" style="width: 100%" />
+            <div class="text">Blueberry bagel</div>
+          </div>
+
+          <!-- Next and previous buttons -->
+          <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+          <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        </div>
+        <br />
+
+        <!-- The dots/circles -->
+        <!-- <div style="text-align: center">
+          <span class="dot" onclick="currentSlide(1)"></span>
+          <span class="dot" onclick="currentSlide(2)"></span>
+          <span class="dot" onclick="currentSlide(3)"></span>
+        </div> -->
+      </div>
+    </div>
+  </body>
+  <footer class="copyright">
+    <p>©2023 Kee Wei & Angie Bagel Company. All Rights Reserves.</p>
+  </footer>
+</html>
+
+<script>
+  let slideIndex = 1;
+  showSlides(slideIndex);
+
+  // Next/previous controls
+  function plusSlides(n) {
+    showSlides((slideIndex += n));
+  }
+
+  // Thumbnail image controls
+  function currentSlide(n) {
+    showSlides((slideIndex = n));
+  }
+
+  function showSlides(n) {
+    let i;
+    let slides = document.getElementsByClassName("mySlides");
+    let dots = document.getElementsByClassName("dot");
+    if (n > slides.length) {
+      slideIndex = 1;
+    }
+    if (n < 1) {
+      slideIndex = slides.length;
+    }
+    for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+    }
+    for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideIndex - 1].style.display = "block";
+    dots[slideIndex - 1].className += " active";
+  }
+</script>
